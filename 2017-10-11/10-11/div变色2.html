@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>div变色2.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+<style type="text/css">
+div{
+width: 100px;
+height: 100px;
+background: red;
+margin: 10px;
+float: left;
+
+}
+
+</style>
+<script type="text/javascript">
+window.onload=function(){
+	var div=document.getElementsByTagName("div");
+	i=0;
+	while(i<div.length){
+		div[i].onclick=function(){
+			i=0;
+			while(i<div.length){
+				div[i].style.background='red';
+				i++;
+			}
+			this.style.background='blue';
+		}
+		
+		i++;
+	}
+}
+
+</script>
+  </head>
+  
+  <body>
+    <div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+  </body>
+</html>
