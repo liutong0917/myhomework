@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>按钮控制的选项卡.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+
+  <style type="text/css">
+#box {
+	margin: 50px auto;
+	width: 310px;
+}
+#box div{
+	width: 300px;
+	height: 300px;
+	border: #000 1px solid;
+	display: none;
+	font-size: 50px;
+	line-height: 300px;
+	text-align: center;
+}
+
+.on {
+	background: red;
+	color: #fff;
+}
+
+</style>
+<script type="text/javascript">
+window.onload=function(){
+	var box=document.getElementById("box");
+	var prev=document.getElementById("prev")
+	var onext=document.getElementById("next");
+	var btn=box.getElementsByTagName("input");
+	var div=box.getElementsByTagName("div");
+	var now=0;
+	var time=null;
+	for(var i=0;i<btn.length;i++){
+		btn[i].index=i;
+		btn[i].onclick=function(){
+			now=this.index;
+			//alert(now)
+			tab();
+		}
+	}
+	function tab(){
+		for(var i=0;i<btn.length;i++){
+			btn[i].className="";
+			div[i].style.display="none";
+		}
+		btn[now].className="on";
+		div[now].style.display="block";
+	}
+	//下一个按钮
+	onext.onclick=next;
+	 function next(){
+		now++;
+		if(now==btn.length){
+			now=0;
+		}
+		tab();
+	}
+	prev.onclick=function(){
+		now--;
+		if(now==-1){
+			now=btn.length-1;
+		}
+		tab();
+	}
+	time=setInterval(next,1000);
+	box.onmouseover=function(){
+		clearInterval(time);
+	}
+	box.onmouseout=function(){
+		time=setInterval(next,1000);
+	}
+} 
+
+</script>
+  </head>
+  
+  <body>
+    <div id="box">
+<a href="javascript:;" id="prev">◁</a>
+<input type="button" value="按钮1" class="on"/>
+<input type="button" value="按钮2" />
+<input type="button" value="按钮3" />
+<a href="javascript:;" id="next">▷</a>
+<div style="display: block;">div1</div><div>div2</div><div>div3</div>
+</div>
+    
+  </body>
+</html>

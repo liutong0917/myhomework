@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>简易秒表.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+<script type="text/javascript">
+  function addzero(n){
+	  if(n<10){
+		  return "0"+n;
+	  }else{
+		  return ""+n;
+	  }
+  }
+  window.onload=function(){
+	  var text=document.getElementById("text");
+	  var btn1=document.getElementById("btn1");
+	  var btn2=document.getElementById("btn2")
+	  var count=0;
+	  var timer=null;
+	 btn1.onclick = function(){
+			clearInterval(timer);
+			timer = setInterval(function(){
+				count++;
+				text.value = addzero(parseInt(count/60)) + ":" + addzero(count%60);		
+			},100);
+		}
+
+	  btn2.onclick=function(){
+		  clearInterval(timer);
+	  }
+  }
+</script>
+  </head>
+  
+  <body>
+   <input type="text" value="" id="text"/>
+<input type="button" value="开始" id="btn1"/>
+<input type="button" value="暂停" id="btn2"/>
+
+  </body>
+</html>

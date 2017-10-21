@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>点击按钮弹出相对应的索引.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+<script type="text/javascript">
+window.onload=function(){
+	var btn=document.getElementById("btn1");
+	btn.onclick=function(){
+		alert(btn.value);
+	}
+    var btn=document.getElementById("btn2");
+    btn.onclick=function(){
+    	alert(btn.value);
+    }
+}
+
+</script>
+  </head>
+  
+  <body>
+    <input type="button" value="按钮1" id="btn1">
+    <input type="button" value="按钮2" id="btn2">
+  </body>
+</html>

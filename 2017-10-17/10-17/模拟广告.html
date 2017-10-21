@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>模拟广告.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+    <style type="text/css">
+    #ad{
+    width: 100%;
+    height: 300px;
+    background: red;
+    }
+    </style>
+    <script type="text/javascript">
+    window.onload=function(){
+    	var div=document.getElementById("ad");
+    	var time=null;
+    	time=setTimeout(function(){
+    		div.style.display="none";
+    	},3000);
+    	div.onmouseover=function(){
+    		clearTimeout(time)
+
+    	}
+    	div.onmouseout=function(){
+    		time=setTimeout(function(){
+    			div.style.display="none";
+    		},3000);
+    	}
+    	
+    }
+    
+    </script>
+  </head>
+  
+  <body>
+    <div id="ad"></div>
+  </body>
+</html>
