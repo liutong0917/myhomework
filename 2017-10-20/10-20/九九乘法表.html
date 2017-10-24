@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>九九乘法表.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+<style type="text/css">
+td{
+border:#000 1px solid;
+}
+</style>
+<script type="text/javascript">
+document.write("<table>");
+for(var i=0;i<=9;i++){
+	document.write("<tr>");
+	for(var j=1;j<=i;j++){
+		document.write("<td>"+i+"*"+j+"="+i*j+"</td>");
+
+	}
+	document.write("</tr>");
+}
+document.write("</table>");
+</script>
+  </head>
+  
+  <body>
+  
+  </body>
+</html>

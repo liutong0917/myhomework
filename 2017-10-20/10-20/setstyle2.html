@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>setstyle2.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+<style type="text/css">
+#box{
+width: 100px;
+height: 100px;
+background: red;
+}
+</style>
+<script type="text/javascript">
+function setStyle(obj,json){
+	var obj=arguments[0];
+	if(arguments.length==0){
+		var name=arguments[1];
+		var value=arguments[2];
+		obj.style[name]=value;
+		//alert(2)
+		
+	}else{
+		var json=arguments[1];
+		for(var name in json){
+			obj.style[name]=json[name];
+			
+		}
+		
+
+	}	
+	
+}
+window.onload=function(){
+	var box=document.getElementById("box");
+	box.onclick=function(){
+		setStyle(box,{
+			width:'200px',
+			height:'300px',
+			background:'blue'
+		});
+	}
+}
+
+</script>
+  </head>
+  
+  <body>
+    <div id="box"></div>
+  </body>
+</html>

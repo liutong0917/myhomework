@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>关于变量.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+<script type="text/javascript">
+var d=b=c=1;
+alert(c)
+function show(){
+	a = 12;
+	alert(a);
+}
+show();
+alert(a);
+function show(){
+	var a = b = c = d = 1;
+	var a = 1;
+	b = 1;
+	c = 1;
+	d = 1;	
+	alert('函数里面的:' + a);
+}
+show();
+alert('函数外面的:' + b);
+
+</script>
+  </head>
+  
+  <body>
+    This is my HTML page. <br>
+  </body>
+</html>
