@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>添加元素.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+<script type="text/javascript">
+window.onload=function(){
+	var box=document.getElementById("box");
+	var btn=document.getElementById("btn");
+	var h2= document.getElementById("h");
+	
+	btn.onclick=function(){
+		var h3=document.createElement("h3");
+		h3.innerHTML="我是h3标签";
+		//box.appendChild(h3);
+		//alert(h2.innerHTML)
+	   box.insertBefore(h3,h2)
+	}
+}
+</script>
+  </head>
+  
+  <body>
+   <input type="button" value="添加" id="btn"/>
+<div id="box">
+	<h2 id="h">我是一个H2标签</h2>
+</div>
+
+  </body>
+</html>

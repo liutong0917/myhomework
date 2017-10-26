@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>输入框文字提示.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+<style type="text/css">
+span{
+position: absolute;
+top:10px;
+left:10px;
+}
+
+</style>
+<script type="text/javascript">
+window.onload=function(){
+	var text=document.getElementById("text");
+	var span=document.getElementById("span");
+	text.onfocus=function(){
+		span.style.display="none";
+		
+	}
+	text.onblur=function(){
+		span.style.display="block";
+	}
+}
+
+</script>
+  </head>
+  
+  <body>
+   <input type="text" value="" id="text">
+   <span id="span">文字提示信息</span>
+  </body>
+</html>

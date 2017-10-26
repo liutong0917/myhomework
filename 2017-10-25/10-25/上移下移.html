@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>上移下移.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+
+ <script>
+window.onload = function(){
+	var box=document.getElementById("box");
+	var btn=document.getElementsByTagName("a");
+	for(var i=0;i<btn.length;i++){
+		if(i%2==0){
+			btn[i].onclick=function(){
+				var obj=this.parentNode;
+				var prev=obj.previousElementSibling || obj.previousSibling;
+               if(obj==box.children[0]){
+            	   alert("已经是第一个了");
+            	   return;
+               }
+               box.insertBefore(obj,prev);	
+
+			}
+		}else{
+			btn[i].onclick=function(){
+				var obj=this.parentNode;
+				var next=obj.nextElementSibling || obj.nextSibling;
+				var next1=next.nextElementSibling || next.nextSibling;
+               if(obj==box.children[box.children.length-1]){
+            	   alert("已经到最后了");
+            	   return;
+               }
+               box.insertBefore(obj, next1)
+			}
+	}
+  }
+}
+</script>
+</head>
+
+<body>
+<ul id="box">
+    <li><a href="javascript:;">上移</a>111111<a href="javascript:;">下移</a></li>
+    <li><a href="javascript:;">上移</a>222222<a href="javascript:;">下移</a></li>
+    <li><a href="javascript:;">上移</a>333333<a href="javascript:;">下移</a></li>
+    <li><a href="javascript:;">上移</a>444444<a href="javascript:;">下移</a></li>
+    <li><a href="javascript:;">上移</a>555555<a href="javascript:;">下移</a></li>
+    <li><a href="javascript:;">上移</a>666666<a href="javascript:;">下移</a></li>
+</ul>
+</body>
+</html>

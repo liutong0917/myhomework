@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>dom2.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+<script type="text/javascript">
+window.onload=function(){
+	var olist=document.getElementById("list");
+	//var onext=olist.nextSibling;
+	//var onext=olist.nextSibling;
+	var onext=olist.nextElementSibling||olist.nextSibling;
+	//var oNext = oList.nextElementSibling || oList.nextSibling;
+   // var oPrev = olist.previousSibling;
+    var oPrev = oList.previousElementSibling || oList.previousSibling;
+
+	alert(oPrev.innerHTML);
+
+	alert(onext.innerHTML);
+	
+}
+
+</script>
+  </head>
+  
+  <body>
+    <ul id="box">
+	<li>111</li>
+    <li id="list">222</li>
+    <li>333</li>
+    <li>444</li>
+</ul>
+
+  </body>
+</html>

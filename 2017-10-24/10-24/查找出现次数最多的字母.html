@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>查找出现次数最多的字母.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+<script type="text/javascript">
+var arr="saddfjkhsdkgjksdfhksdmgvasjfja";
+var json={};
+for(var i=0;i<str.length;i++){
+	if(json[str[i]]){
+		json[str[i]]++;
+	}else{
+		json[str[i]]=1;
+	}
+}
+console.log(json);
+var n=0;
+var s='';
+for(var name in json){
+	if(n<json[name]){
+		n=json[name];
+		s=name;
+	}
+	
+}
+</script>
+  </head>
+  
+  <body>
+    This is my HTML page. <br>
+  </body>
+</html>

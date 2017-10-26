@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>图片延迟加载.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+
+ <style>
+img {
+	width: 300px;
+	height:300px;
+	float:left;
+	margin: 10px;
+	border: #000 1px solid;
+}
+</style>
+<script type="text/javascript">
+function getPos(obj){
+	var l=0;
+	var t=0;
+	while(obj){
+		l+=obj.offsetLeft;
+		t+=obj.offsetTop;
+		obj=obj.offsetParent;
+	}
+	return{left: l;top: t};
+}
+ window.onload=function(){
+	 var img=document.getElementsByTagName("img");
+	 window.onscroll=function(){
+		 for(var i=0;i<img.length;i++){
+			 var imgtop=getPos(img[i]).top;
+		 }
+	 }
+ }
+</script>
+</head>
+
+<body>
+<img src="img/b1.jpg" alt=""/>
+<img src="img/b2.jpg" alt=""/>
+<img src="img/b3.jpg" alt=""/>
+<img src="img/b4.jpg" alt=""/>
+<img src="img/b5.jpg" alt=""/>
+<img src="img/b6.jpg" alt=""/>
+<img src="img/b7.jpg" alt=""/>
+<img src="img/b8.jpg" alt=""/>
+<img src="img/b9.jpg" alt=""/>
+<img src="img/b10.jpg" alt=""/>
+</body>
+</html>

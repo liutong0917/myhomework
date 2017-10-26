@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>关于自定义属性.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+<script type="text/javascript">
+window.onload=function(){
+	var btn=document.getElementById("btn");
+	btn.onclick=function(){
+		alert(btn.getAttribute("index"));
+		btn.setAttribute("index",1);
+		alert(btn.getAttribute('index'))
+	}
+}
+
+</script>
+  </head>
+  
+  <body>
+  <input type="button" value="123" index="abc" id="btn"/>
+
+  </body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>点击子元素让付元素隐藏.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+<script type="text/javascript">
+window.onload=function(){
+	var box=document.getElementById("box");
+	var btn=box.getElementsByTagName("a");
+	for(var i=0;i<btn.length;i++){
+		btn[i].onclick=function(){
+			this.parentNode.style.display="none";
+			
+		}
+	}
+}
+
+</script>
+  </head>
+  
+  <body>
+    <ul id="box">
+	<li>1111<a href="javascript:;">隐藏</a></li>
+    <li>2222<a href="javascript:;">隐藏</a></li>
+    <li>3333<a href="javascript:;">隐藏</a></li>
+    <li>4444<a href="javascript:;">隐藏</a></li>
+    
+</ul>
+
+  </body>
+</html>

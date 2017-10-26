@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>jsonstr2.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+<script type="text/javascript">
+/* var arr=[];
+for(var name in json){
+	arr.push(name+'='+json[name]);
+	
+} */
+function json2str(json){
+	for(var name in json){
+		arr.push(name+'='+json[name]);
+		
+	}
+	return arr.join('&');
+}
+
+console.log(json2str({a:1,c:2,f:5}));
+
+</script>
+  </head>
+  
+  <body>
+    This is my HTML page. <br>
+  </body>
+</html>

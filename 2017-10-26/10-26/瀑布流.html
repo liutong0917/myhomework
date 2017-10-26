@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>瀑布流.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+<style>
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+#box {
+	margin: 0 auto;
+	width: 966px;
+	height:auto;
+	overflow:hidden;
+}
+
+#box ul {
+	width: 300px;
+	border: #000 1px solid;
+	float: left;
+	margin-right: 20px;
+}
+
+#box ul li {
+	width: 280px;
+	margin: 10px 9px;
+	border: #666 1px solid;
+}
+</style>
+<script>
+function rnd(n,m){
+	return parseInt(Math.random()*(m-n)+n);
+}
+window.onload=function(){
+	var box=document.getElementById("box");
+	var aul=box.children;
+	for(var i=0;i<10;i++){
+		var oli=document.createElement("li");
+		oli.style.height=rnd(100,400)+"px";
+		oli.style.background='rgb('+rnd(0,256)+','+rnd(0,256)+','+rnd(0,256)+')';
+		aul[0].appendChild(oli);
+	}
+}
+</script>
+</head>
+
+<body>
+<div id="box">
+	<ul></ul>
+    <ul></ul>
+    <ul></ul>
+</div>
+</body>
+</html>
+

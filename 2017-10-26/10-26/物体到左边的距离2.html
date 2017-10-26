@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>物体到左边的距离2.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+
+ <style>
+*{
+	margin: 0;
+}
+#box4 {
+	width: 100px;
+	height: 100px;
+	background: red;
+	margin-left: 100px;
+}
+
+#box2,
+#box1,
+#box3 {
+	position: relative;
+	margin-left: 100px;
+}
+</style>
+<script>
+function getPos(obj){
+	var l=0;
+	var t=0;
+	while(obj){
+		l+=obj.offsetLeft;
+		t+=obj.offsetTop;
+		obj=obj.offsetParent;
+		
+	}
+	return{left:l,top:t}
+}
+window.onload = function(){
+	var box4=document.getElementById("box4");
+	box4.onclick=function(){
+		//getPos(obj).top
+		alert(getPos(box4).left)
+		alert(getPos(box4).top)
+	}
+}
+</script>
+</head>
+
+<body>
+<div id="box2">
+	<div id="box1">
+    	<div id="box3">
+        	<div id="box4"></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

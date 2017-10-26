@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>元素本身宽1.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+<style>
+#box {
+	width: 100px;
+	height: 100px;
+	background: red;
+	display: none;
+}
+</style>
+<script>
+function getStyle(obj,attr){
+	if(obj.currentStyle){
+		return obj.currentStyle[attr];	
+	}else{
+		return getComputedStyle(obj,false)[attr];	
+	}
+}
+window.onload = function(){
+	var box = document.getElementById('box');
+	alert( box.offsetWidth);
+	box.onclick = function(){
+		alert(typeof box.offsetWidth);//100,number
+		//alert(oBox.offsetHeight);	
+		//alert(typeof getStyle(oBox,'width'));//100px,string
+	} 
+}
+</script>
+</head>
+
+<body>
+<div id="box"></div>
+</body>
+</html>

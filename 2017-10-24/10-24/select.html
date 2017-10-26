@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>select.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+<script type="text/javascript">
+window.onload=function(){
+	var os=document.getElementById("sl");
+	//alert(os)
+	//var ao=os.getElementsByTagName('option');
+	var ao=os.options;
+	alert(ao.length);
+	alert(os.selectedIndex);
+	alert(ao[os.selectedIndex].text)
+	var newOption = new Option('河南','hn');
+	os.options.remove(1)
+	os.add(newOption);
+	}
+</script>
+  </head>
+  
+  <body>
+   <select id="sl">
+	<option value="bj">北京</option>
+	<option value="tj">天津</option>
+	<option value="hb" selected>河北</option>
+</select>
+
+  </body>
+</html>

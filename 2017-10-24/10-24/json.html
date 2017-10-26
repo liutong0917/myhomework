@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>json.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+<script type="text/javascript">
+/* var str='a=1&b=2&c=3';
+var arr=str.split('&');
+var json={};
+for(var i=0;i<arr.length;i++){
+	//把数组中的每一个用'='在切一下;返回的是一个新的数组[a,1],[b,2],[c,3]
+	var arr2=arr[i].split('=');
+	//往json中添加,数组中的第一个相当于是json的name,数组中的第二个相当于是json的value;
+
+	json[arr2[0]]=arr[1];	
+}
+alert(json) */
+function str2json(str){
+	var arr=str.split("&");
+	var json={};
+	for(var i=0;i<arr.length;i++){
+		var arr2=arr[i].split('=');
+		json[arr2[0]]=arr2[1];
+		
+	}
+	return json;
+}
+console.log(str2json('a=1&b=3'));
+
+</script>
+  </head>
+  
+  <body>
+    This is my HTML page. <br>
+  </body>
+</html>

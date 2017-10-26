@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>输入框文字提示2.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+<style>
+span {
+	position:absolute;
+	top: 10px;
+	left: 10px;
+}
+</style>
+<script>
+window.onload = function(){
+	var oTxt = document.getElementById('txt');
+	var oSpan = document.getElementById('span');
+	
+	oTxt.onfocus = function(){
+		oSpan.style.display = 'none';
+	}
+	
+	oTxt.onblur = function(){
+		if(oTxt.value != ''){
+			oSpan.style.display = 'none';	
+		}else{
+			oSpan.style.display = 'block';	
+		}
+	}
+	
+	oSpan.onclick = function(){
+		this.style.display = 'none';
+		oTxt.focus();	
+	}
+}
+</script>
+</head>
+
+<body>
+<input type="text" value="" id="txt"/>
+<span id="span">文字提示信息</span>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>在线运行代码.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+<script type="text/javascript">
+window.onload=function(){
+	var text=document.getElementById("text");
+	var btn=document.getElementById("btn");
+	btn.onclick=function(){
+		var win=window.open("about:_blank");
+		win.document.write(text.value);
+		setTimeout(function(){
+			win.onload();
+		}, 300)
+	}
+}
+</script>
+  </head>
+  
+  <body>
+   <textarea rows="20" cols="100" id="text"></textarea>
+   <br/>
+   <input type="button" value="运行代码" id="btn">
+  </body>
+</html>

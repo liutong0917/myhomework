@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ad.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+<style type="text/css">
+#box{
+width: 200px;
+height: 200px;
+background: red;
+position:fixed;
+_position:absolute;
+right: 0;
+bottom:0;
+}
+</style>
+<script type="text/javascript">
+/* if(window.navigator.userAgent.indexOf('MSIE 6.0')!=-1){
+	window.onload=function(){
+		var box=document.getElementById("box");
+		window.onscrollT=document.documentElement.scrollTop;
+		var slientH=document.documentElement.clientHeight;
+		var boxH=box.offsetHeight;
+		box.style.top=clientH-boxH+scrollT+"px";
+	}
+} */
+if(window.navigator.userAgent.indexOf('MSIE 6.0') != -1){
+	window.onload = window.onscroll = window.onresize = function(){
+		var oBox = document.getElementById('box');
+			var scrollT = document.documentElement.scrollTop;
+			var clientH = document.documentElement.clientHeight;
+			var oBoxH = oBox.offsetHeight;
+			oBox.style.top = clientH - oBoxH + scrollT + 'px';			
+	}
+}
+
+</script>
+  </head>
+  
+  <body style="height: 3000px;width: 3000px;">
+   <div id="box"></div>
+   <div style="width:1800px;height:800px;background: blue">asf</div>
+  </body>
+</html>
