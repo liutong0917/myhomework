@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>图片放大镜.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+
+  <style>
+#small {
+	width: 300px;
+	height:300px;
+	border: #000 1px solid;
+	float:left;
+	position: relative;
+}
+#small img {
+	width: 300px;
+	height: 300px;
+}
+
+#small span {
+	display: block;
+	width: 120px;
+	height: 120px;
+	background: red;
+	opacity: .5;
+	border: #333 1px solid;
+	position: absolute;
+	left: 0;
+	top: 0;
+	display: none;
+}
+
+#big {
+	width: 300px;
+	height: 300px;
+	border: #000 1px solid;
+	float: left;
+	margin-left: 20px;
+	overflow: hidden;
+	position: relative;
+	display: none;
+}
+
+#big img {
+	position: absolute;
+}
+</style>
+<script type="text/javascript">
+window.onload=function(){
+	var small=document.getElementById("small");
+	var big=document.getElementById("big");
+	var mask=document.getElementById("mask");
+	var bigimg=document.getElementById("bigimg")
+	small.onmouseover=function(){
+		mask.style.display="block";
+		big.style.display="block";
+	}
+	small.onmouseout=function(){
+		mask.style.display="none"
+		big.style.display="none"
+	}
+	small.onmousemove = function(ev){
+		var oEvent = ev || event;	
+		var l = oEvent.clientX - mask.offsetWidth/2 ;
+		var t = oEvent.clientY - mask.offsetHeight/2;
+		if(l<0){
+			l=0;
+		}else if(l > small.offsetWidth - mask.offsetWidth){
+			l=small.offsetWidth - mask.offsetWidth;
+		}
+		if(t<0){
+			t=0;
+		}else if(t > small.offsetHeight - mask.offsetHeight){
+		t=	small.offsetHeight - mask.offsetHeight
+		}
+		mask.style.left = l + 'px';
+		mask.style.top = t + 'px';
+	  bigimg.style.left = l * (big.offsetWidth - bigimg.offsetWidth) / (small.offsetWidth - mask.offsetWidth) + 'px';
+		
+		bigimg.style.top = t * (big.offsetHeight - bigimg.offsetHeight) / (small.offsetHeight - mask.offsetHeight) + 'px';
+
+}
+}
+</script>
+</head>
+
+<body>
+<div id="small">
+	<img src="s.jpg" alt=""/>
+    <span id="mask"></span>
+</div>
+<div id="big">
+	<img src="b.jpg" alt="" id="bigimg"/>
+</div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>键盘事件.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+<script type="text/javascript">
+document.onkeydown=function(){
+	alert(1)
+}
+document.onkeyup=function(){
+	alert(2)
+}
+document.onkeyup=function(ev){
+	var oevent=ev||event
+	alert(oevent.keyCode)
+}
+</script>
+  </head>
+  
+  <body>
+    This is my HTML page. <br>
+  </body>
+</html>

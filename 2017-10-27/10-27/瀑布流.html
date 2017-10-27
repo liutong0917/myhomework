@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>瀑布流.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+<style type="text/css">
+*{border: 0px;margin: 0px;padding: 0px;list-style: none}
+#box{
+margin: 0px auto;
+width: 966px;
+overflow: hidden;
+}
+#box ul{
+width:300px;
+height:auto;
+float: left;
+margin-left: 20px;
+border:#000 1px solid;
+}
+#box ul li{
+width:280px;
+border: #999 1px solid;
+margin: 10px 9px;
+}
+</style>
+<script type="text/javascript">
+function rnd(n,m){
+	return parseInt(Math.random()*(m-n)+n)
+}
+function createli(){
+	var oli=document.createElement("li");
+	oli.style.height=rnd(50,300)+"px";
+	oli.style.background='rgb('+rnd(0,256)+','+rnd(0,256)+','+rnd(0,256)+')';
+	return oli;
+}
+ window.onload=function(){
+	 var box=document.getElementById("box");
+	 var aul=box.children;
+	 
+	 function appendli(){
+	 for(var i=0;i<15;i++){
+		 var oli=createli();
+		 var iminul;
+		 var arrul=[];
+		 for(var j=0;j<aul.length;j++){
+			 arrul[j]=aul[j];
+		 }
+		 arrul.sort(function(n1,n2){
+			 return n1.offsetHeight-n2.offsetHeight;
+		 });
+		 arrul[0].appendChild(oli);
+		 
+	 }
+ }
+ 
+ appendli();
+ window.onscroll=function(){
+	 var oscroll = document.documentElement.scrollTop || document.body.scrollTop;
+	 var clientH = document.documentElement.clientHeight;
+	 var oboxh = box.scrollHeight;
+    if(oscroll+clientH>=oboxh){
+    	appendli();
+    }
+ }
+ }
+</script>
+  </head>
+  
+  <body>
+   <div id="box">
+       <ul></ul>
+       <ul></ul>
+       <ul></ul>
+   </div>
+  </body>
+</html>

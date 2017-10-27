@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>获取页面坐标.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+<script type="text/javascript">
+window.onload=function(){
+	document.body.onclick=function(ev){
+		var oEvent = ev || event;
+
+		//alert(event.clientX+':'+event.clientY)
+		alert(oEvent.clientX+':'+oEvent.clientY)
+	}
+}
+</script>
+  </head>
+  
+  <body style="height:500px;border:#000 2px solid">
+    This is my HTML page. <br>
+  </body >
+</html>

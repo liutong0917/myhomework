@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>跟随鼠标移动的div.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+
+ <style>
+#box {
+	width: 100px;
+	height: 100px;
+	background: red;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+</style>
+<script>
+window.onload = function(){
+	var oBox = document.getElementById('box');
+	document.onmousemove=function(ev){
+		
+	var oevent=ev||event
+	//var l=oevent.clientX;
+	//var t=oevent.clientY;//鼠标箭头在div左上角
+	var l=oevent.clientX-box.offsetWidth/2;
+	var t=oevent.clientY-box.offsetHeight/2;//鼠标箭头在图片中央
+	box.style.left=l+"px";
+	box.style.top=t+"px"
+	
+	}
+}
+</script>
+</head>
+
+<body>
+<div id="box"></div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>阻止复制.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+<script>
+window.onload = function(){
+	document.onkeydown = function(ev){
+		var oEvent = ev || event;
+		if(oEvent.ctrlKey && oEvent.keyCode == 67){
+			return false;	
+		}
+	}
+}
+document.oncontextmenu = function(){
+	return false;
+}
+</script>
+</head>
+
+<body>
+的风景和计算机的的开始放假的发生的开发大师傅速度快公司扩大发给拉克丝记得护肤老师
+</body>
+</html>

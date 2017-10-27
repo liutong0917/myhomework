@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>模拟右键菜单.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+<style>
+*{
+	margin: 0;
+	padding: 0;
+	list-style:none;
+}
+
+#menu {
+	width: 100px;
+	position: absolute;
+	left: 0;
+	top: 0;
+	display: none;
+	border: #000 1px solid;
+}
+
+#menu li {
+	width: 100px;
+	height: 40px;
+	line-height:40px;
+	border-bottom: #666 1px solid;
+}
+
+#menu li a  {
+	display: block;
+	text-align:center;
+	text-decoration: none;
+	color: #333;
+}
+</style>
+<script>
+window.onload = function(){
+	var oMenu = document.getElementById('menu');
+	
+	document.oncontextmenu = function(ev){
+		var oEvent = ev || event;
+		var l = oEvent.clientX;
+		var t = oEvent.clientY;
+		oMenu.style.display = 'block';
+		oMenu.style.left = l + 'px';
+		oMenu.style.top = t + 'px';
+		return false;
+	}
+}
+</script>
+</head>
+
+<body>
+<ul id="menu">
+	<li><a href="http://www.baidu.com">去百度</a></li>
+    <li><a href="http://www.jd.com">去京东</a></li>
+    <li><a href="http://www.taobao.com">去淘宝</a></li>
+    <li><a href="http://www.sina.com.cn">去新浪</a></li>
+</ul>
+</body>
+</html>
