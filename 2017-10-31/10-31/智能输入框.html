@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>智能输入框.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+    <script src="jquery-1.6.4.min.js"></script>
+</head>
+<body>
+    <div>
+        <input class="search" type="text"/>
+        <div id="div"></div>
+    </div>
+</body>
+<script type="text/javascript">
+     $(function(){
+         $(".search").bind('propertychange input',function(){
+             $("#div").html("");
+             //组装查询地址
+             var sugurl = "http://suggestion.baidu.com/su?wd="+$(this).val()+"&cb=window.baidu.sug";
+             //定义回调函数
+             window.baidu = {
+                 sug: function(data) {
+                    // console.log(data);
+                    // console.log(data.s);
+                     var str="";
+                     for(var i=0;i<data.s.length;i++){
+                         str += "<li>"+data.s[i]+"</li>";
+                     }
+                     $("#div").html(str);
+                     console.log(data.s.length);
+                 }
+             }
+             //动态添加JS脚本
+             var script = document.createElement("script");
+             script.src = sugurl;
+             document.getElementsByTagName("head")[0].appendChild(script);
+         })
+     })
+</script>
+</html>

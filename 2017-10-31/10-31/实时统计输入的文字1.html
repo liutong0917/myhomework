@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>实时统计输入的文字1.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+
+    <script>
+        window.onload = function () {
+        var text=document.getElementById("txt");
+        /* text.oninput=function(){
+        	document.title=text.value.length
+         } */
+        text.oninput=text.onpropertychange=function(){//解决浏览器兼容问题
+        	document.title=text.value.length
+        } 
+        }
+    </script>
+</head>
+<body>
+<input type="text" name="" id="txt">
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>事件解除绑定.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+<script type="text/javascript">
+  function removeEvent(obj,sev,fn){
+	  if(obj.removeEventListener){
+		  return obj.removeEventer(sev,fn,false)
+	  }else{
+		  return obj.detachEvent("on"+sev,fn);
+	  }
+  }
+
+</script>
+  </head>
+  
+  <body>
+    This is my HTML page. <br>
+  </body>
+</html>

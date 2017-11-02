@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>分享到.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+<style type="text/css">
+#div{
+width: 200px;
+height:200px;
+background: red;
+position: fixed;
+right: -200px;
+top:50%;
+margin-top: -100px
+}
+#bar{
+width: 20px;
+height: 60px;
+text-align: center;
+position: absolute;
+left:-20px;
+top:60px;
+background: #000;
+color:#fff;
+}
+</style>
+  <script src="move1.js"></script>
+    <script>
+        window.onload = function () {
+        	var count=0;
+        	var time=null;
+           var div=document.getElementById("div");
+           div.onmouseover=function(){
+        	   move(this,{right:0},1000);
+        	  /* time=setInterval(function(){
+        		   count++;
+        		   if(count>=200){
+        			   clearInterval(time);
+        			   return;
+        		   }
+        		   div.style.right=count-200+"px"
+        	   },30) */
+           }
+           div.onmouseout=function(){
+        	   move(this,{right:-200},1000);
+           }
+           
+        }
+    </script>
+
+  </head>
+  
+  <body>
+   <div id="div">
+        <span id="bar">分享到</span>
+   </div>
+  </body>
+</html>

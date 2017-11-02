@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>domready2.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+
+      <style>
+        #div {
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+    </style>
+    <script>
+       function domReady(fn){
+    	   if(document.addEventListener){
+    		   document.addEventListener("DOMContentLoaded",function(){
+    			   fn&&fn();
+    		   },false);
+    	   }else{
+    		   document.attachEvent("onreadystatechange",function(){
+    			   if(document.readyState=="complete"){
+    				   fn&&fn();
+    			   }
+    		   })
+    	   }
+       }
+         domReady(function(){
+        	 var div=document.getElementById("div");
+        	 div.onclick=function(){
+        		 alert(1)
+        	 }
+         })
+    </script>
+</head>
+<body>
+<div id="div"></div>
+</body>
+</html>

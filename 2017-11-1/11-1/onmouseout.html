@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>onmouseout.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+
+      <style>
+        #div {
+            width: 300px;
+            height: 300px;
+            background: red;
+        }
+
+        #h3 {
+            width: 300px;
+            height: 100px;
+            background: green;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+           var div=document.getElementById("div");
+           var h3=document.getElementById("h3")
+           div.onmouseout=function(ev){
+        	  // alert("移出了")
+        	  var oevent=ev||event
+        	  var oto=oevent.toElement;
+        	  var ot=oevent.relatedTarget;
+        	  var oTo=oevent.toElement||oevent.relatedTarget
+        	  alert(oto+"---"+ot)
+        	  alert(oTo)
+        	  alert(div.contains(h3))
+        	  if(div.contains(oTo))return;
+        	  alert("移出了")
+           }
+        }
+    </script>
+</head>
+<body>
+<div id="div">
+    <h3 id="h3"></h3>
+</div>
+</body>
+</html>

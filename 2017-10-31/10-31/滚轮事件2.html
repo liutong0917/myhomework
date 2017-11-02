@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>滚轮事件2.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+ <style>
+        #div {
+            width: 400px;
+            height: 400px;
+            background: red;
+            margin: 50px auto;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+           var div=document.getElementById("div");
+           if(window.navigator.userAgent.toLocaleLowerCase().indexOf("firefox")!=-1){
+           div.addEventListener('DOMMouseScroll',function(ev){
+        	   var oevent=ev||event;
+        	   if(oevent.detail>0){
+        		   alert("下1")
+        	   }else{
+        		   alert("上1")
+        	   }
+           },false)
+        
+        }else{
+        	div.onmousewheel=function(ev){
+        		var oevent=ev||event
+        		if(oevent.wheelDelta>0){
+        			alert("上2")
+        		}else{
+        			alert("下2")
+        		}
+        	}
+        }
+        } 	
+    </script>
+</head>
+<body>
+<div id="div"></div>
+</body>
+</html

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>简易留言板.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+
+   <script>
+        window.onload = function () {
+          var box=document.getElementById("box")
+          var li=box.children;
+          var btn=document.getElementById("btn");
+          var text=document.getElementById("txt");
+          for(var i=0;i<li.length;i++){
+        	  li[i].onclick=function(){
+        		  alert(this.innerHTML)
+        	  }
+          }
+          btn.onclick=function(){
+        	  var li=document.createElement("li");
+        	  li.innerHTML=text.value;
+        	  box.appendChild(li)
+          }
+          box.onclick=function(ev){
+        	  var oevent=ev||event;
+        	  var target=oevent.target||oevent.srcElement;
+        	  if(target.tagName=="LI"){
+        		  alert(target.innerHTML)
+        	  }
+        	  alert(target.tagName)
+          }
+        }
+    </script>
+</head>
+<body>
+<input type="text" name="" id="txt">
+<input type="button" value="按钮" id="btn">
+<ul id="box">
+    <li>123213</li>
+    <li>123213</li>
+</ul>
+</body>
+</html>

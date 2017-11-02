@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>运动.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+
+      <style>
+        #div {
+            width: 100px;
+            height: 100px;
+            background: red;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var oDiv = document.getElementById('div');
+            oDiv.onclick = function () {
+                var start = 0;
+                var iTarget = 300;
+                var dis = iTarget - start;
+                var time = 1000;
+                var count = Math.floor(time/30);
+                var step = dis/count;
+                var n = 0;
+                setInterval(function(){
+                    n++;
+                    oDiv.style.left = step * n + 'px';
+
+                },30);
+
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="div"></div>
+</body>
+</html>

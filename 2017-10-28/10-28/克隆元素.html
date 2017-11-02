@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>克隆元素.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+
+ <style>
+#box {
+	width: 200px;
+	height:200px;
+	background: red;
+	color: #fff;
+	margin-bottom: 20px;
+}
+.box {
+	width: 200px;
+	height:200px;
+	background: blue;
+	color: #fff;
+	margin-bottom: 20px;
+}
+</style>
+<script>
+window.onload = function(){
+	var btn=document.getElementById("btn");
+	var box=document.getElementById("box")
+	btn.onclick=function(){
+		//var newdiv=box.cloneNode();克隆box,不复制其内容
+		var newdiv=box.cloneNode(true);
+		newdiv.removeAttribute("id")
+		document.body.appendChild(newdiv);
+		
+	}
+}
+</script>
+</head>
+
+<body>
+<input type="button" value="按钮" id="btn"/>
+<div id="box" class="box">
+	<h3>我是一个H3</h3>
+</div>
+</body>
+</html>

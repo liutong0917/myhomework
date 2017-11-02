@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>事件绑定.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+<script type="text/javascript">
+function addEvet(obj,sEv,fn){
+    return obj.addEventListener(sEv,fn,false);
+}else {
+    return obj.attachEvent('on'+sEv,fn);
+}
+}
+function removeEvent(obj,sEv,fn){
+if(obj.removeEvent(sEv,fn,false)){
+    return obj.removeEventListener(sEv,fn,false);
+}else{
+    return obj.detachEvent('on' + sEv,fn)
+}
+
+}
+
+
+</script>
+  </head>
+  
+  <body>
+    This is my HTML page. <br>
+  </body>
+</html>

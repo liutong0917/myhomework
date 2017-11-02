@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>拖拽事件.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+ <style>
+        div {
+            width: 80px;
+            height: 80px;
+            position: absolute;
+        }
+        #box {
+            width: 300px;
+            height: 300px;
+            background: red;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+        }
+    </style>
+    <script type="text/javascript">
+    function rnd(n,m){
+    	return parseInt(Math.random()*(m-n)+n);
+    }
+    	window.onload=function(){
+    		for(var i=0;i<100;i++){
+    			var div=document.createElement("div");
+    			div.style.background="rgb("+rnd(0,256)+","+rnd(0,256)+","+rnd(0,256)+")";
+    			div.style.left=rnd(0,document.documentElement.clientWidth-80)+"px";
+    			div.style.top=rnd(0,document.documentElement.clientHeight-80)+"px";
+    			document.body.appendChild(div);
+    			div.setAttribute("drag","index")
+    		}
+    		document.onmousedown=function(ev){
+    			var oevent=ev||event
+    			var target=oevent.target||oevent.srcElement;
+    			var disx=oevent.clientX-target.offsetLeft;
+    			var disy=oevent.clientY-target.offsetTop;
+    		if(target.getAttribute("drag")=="index"){
+    			document.onmousemove=function(ev){
+    				var oevent=ev||event;
+    				var l=oevent.clientX-disx;
+    				var t=oevent.clientY-disy;
+    				target.style.left=l+"px";
+    				target.style.top=t+"px";
+    				
+    			}
+    			document.onmouseup=function(){
+    				document.onmouseup=null;
+    				document.onmousemove=null;
+    		
+    		}
+    		return false;
+    	}
+    }
+    	} 
+    </script>
+  </head>
+  
+  <body>
+   <div id="box"></div>
+  </body>
+</html>

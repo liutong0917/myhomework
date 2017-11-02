@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>多个物体运动.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+
+   <style>
+        div,p {
+            width: 80px;
+            height: 80px;
+            background: red;
+            margin: 10px 0;
+        }
+        p{
+           transition:2s;
+        }
+        p:HOVER {
+			width:300px;
+		}
+    </style>
+    <script src="move.js"></script>
+    <script>
+        window.onload = function () {
+           var div=document.getElementsByTagName("div");
+           for(var i=0;i<div.length;i++){
+        	   div[i].onmouseover=function(){
+        		   move(this,500,1000,"width")
+        	   }
+        	   div[i].onmouseout=function(){
+        		   move(this,80,3000,"width")
+        	   }
+           }
+        }
+    </script>
+</head>
+<body>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+</body>
+</html>

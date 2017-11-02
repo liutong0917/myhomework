@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>事件委托2.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+
+  <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        li {
+            width: 50px;
+            height: 50px;
+            background: #ccc;
+            float: left;
+            margin: 10px;
+        }
+        #box{
+      
+        width: 100%;
+        height: 50px;
+        overflow:hidden;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+           var box=document.getElementById("box");
+          // var li=document.getElementsByTagName("li")
+           var li=box.children;      
+          /* for(var i=0;i<li.length;i++){
+        	   li[i].onclick=function(){
+        		   this.style.background="red"
+        	   }
+           } */
+           box.onclick=function(ev){
+        	  // this.style.background="red";
+        	  var oevent=ev||event
+        	 // var target=oevent.target;
+        	  //var target=oevent.srcElement;
+        	  var target=oevent.srcElement||oevent.target;
+        	 if(target.tagName=="LI"){
+        		 target.style.background="red"
+        	 }
+           }
+        }
+    </script>
+</head>
+<body>
+<ul id="box">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+</body>
+</html>

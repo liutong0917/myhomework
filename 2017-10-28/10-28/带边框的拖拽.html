@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>带边框的拖拽.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+<style>
+#box{
+	width: 100px;
+	height:100px;
+	background: red;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+.new{
+	width: 100px;
+	height: 100px;
+	position:absolute;
+	border: green 1px dashed;
+}
+</style>
+<script type="text/javascript">
+window.onload=function(){
+	var box=document.getElementById("box");
+	box.onmousedown=function(ev){
+		var oevent=ev||event;
+		var disx=oevent.clientX-box.offsetLeft;
+		var disy=oevent.clientY-box.offsetTop;
+		var onew=box.cloneNode(true);
+		onew.removeAttribute("id");
+		onew.className="new";
+		box.parentNode.appendChild(onew);
+		
+		document.onmousemove=function(ev){
+			var oevent=ev||event;
+			var l=oevent.clientX-disx;
+			var t=oevent.clientY-disy;
+			onew.style.left=l+"px";
+			onew.style.top=t+"px";
+		
+		}
+		document.onmouseup=function(){
+			document.onmouseup=null;
+			document.onmousemove=null;
+			box.style.top = onew.offsetTop + 'px';
+			box.style.left =onew.offsetLeft + 'px';
+
+			box.parentNode.removeChild(onew);
+
+			box.releaseCapture&&box.releaseCapture();
+			
+		}
+		box.setCapture &&box.setCapture();
+		return false;
+	}
+	}
+
+</script>
+  </head>
+  
+  <body>
+    <div id="box"></div>
+  </body>
+</html>

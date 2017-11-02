@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>滚轮事件.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+
+  <style>
+        #div {
+            width: 200px;
+            height: 200px;
+            background: red;
+        }
+    </style>
+    <script>
+    window.onload=function(){
+   var div=document.getElementById("div");
+      function addEvent(obj,sev,fn){
+    	  if(obj.addEventListener){
+    		  return obj.addEventListener(sev,fn,false)
+    	  }else{
+    		  return obj.addEvent('on'+sev,fn);
+    	  }
+      }
+      function addWheel(obj,fn){
+    	  function wheel(ev){
+    		  var oevent=ev||event;
+    		  var down=true;
+    		  down=oevent.wheelDelta?oevent.wheelDelta>0:oevent.detail<0;
+    		  fn&&fn(down)
+    	   oevent.preventDefault&&oevent.preventDefault();
+    		  return false;
+    	  }
+    	  if(window.navigator.userAgent.toLowerCase().indexOf('firefox')!=-1){
+              obj.addEventListener('DOMMouseScroll',wheel,false)
+          }else{
+              addEvent(obj,'mousewheel',wheel);
+          }
+      }
+      addWheel(div,function(down){
+    	  if(down){
+    		  div.style.height=div.offsetHeight-10+"px";
+    	  }else{
+    		  div.style.height=div.offsetHeight+10+"px"; 
+    	  }
+      })
+
+      }
+
+    
+    </script>
+</head>
+<body>
+<div id="div"></div>
+</body>
+</html>

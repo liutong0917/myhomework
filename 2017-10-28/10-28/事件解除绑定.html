@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>事件解除绑定.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+<script type="text/javascript">
+window.onload = function(){
+	var oBtn = document.getElementById('btn1');
+	function show(){
+		alert('1');	
+	}
+	
+	function show1(){
+		alert('2');	
+	}
+	function addEvent(obj,sEv,fn){
+		if(obj.addEventListener){
+			return 	obj.addEventListener(sEv,fn,false);
+		}else{
+			return obj.attachEvent('on'+sEv,fn);	
+		}	
+	}
+	addEvent(oBtn,'click',show);
+	addEvent(oBtn,'click',show1);
+	oBtn.removeEventListener('click',show1,false);
+}
+
+</script>
+  </head>
+  
+  <body>
+    <input type="button" value="按钮1" id="btn1"/>
+
+  </body>
+</html>

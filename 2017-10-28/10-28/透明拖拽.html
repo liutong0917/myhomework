@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>透明拖拽.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+<style>
+#box {
+	width: 100px;
+	height: 100px;
+	background: red;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+.new {
+	width: 100px;
+	height: 100px;
+	background: #000;
+	color: #fff;
+	position: absolute;
+	left: 0;
+	top: 0;
+	opacity: .3;
+}
+</style>
+<script>
+window.onload = function(){
+	var oBox = document.getElementById('box');
+	
+	oBox.onmousedown = function(ev){
+		var oEvent = ev || event;
+		var disX = oEvent.clientX - oBox.offsetLeft;
+		var disY = oEvent.clientY - oBox.offsetTop;
+		var oNew = oBox.cloneNode(true);
+		oNew.removeAttribute('id');
+		oNew.className = 'new';
+		oBox.parentNode.appendChild(oNew);
+		document.onmousemove = function(ev){
+			var oEvent = ev || event;
+			var l = oEvent.clientX - disX;
+			var t = oEvent.clientY - disY;
+			oNew.style.left = l + 'px';
+			oNew.style.top = t + 'px';			
+		}
+		document.onmouseup = function(){
+			document.onmousemove = null;
+			document.onmouseup = null;
+			oBox.releaseCapture &&oBox.releaseCapture();	
+		}
+		oBox.setCapture&&oBox.setCapture();
+		return false;
+	}
+}
+</script>
+</head>
+
+<body>
+<div id="box">
+	<h3>我是H3</h3>
+</div>
+</body>
+</html>

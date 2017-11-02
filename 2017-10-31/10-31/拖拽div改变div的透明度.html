@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>拖拽div改变div的透明度.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+    <style>
+        #div {
+            width: 400px;
+            height: 30px;
+            background: #ccc;
+            position:relative;
+            margin: 50px auto;
+        }
+
+        #bar {
+            width: 50px;
+            height: 30px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: red;
+            background: red;
+        }
+
+        #box {
+            width: 200px;
+            height: 200px;
+            background: blue;
+            opacity:0;
+        }
+    </style>
+    <script type="text/javascript">
+    window.onload=function(){
+    	var bar=document.getElementById("bar");
+    	var div=document.getElementById("div");
+    	var box=document.getElementById("box");
+    	bar.onmousedown=function(ev){
+    		var oevent=ev||event;
+    		var disx=oevent.clientX-bar.offsetLeft;
+    		
+    		document.onmousemove=function(ev){
+    			var oevent=ev||event;
+    			var l=oevent.clientX-disx;
+    			if(l<0){
+    				l=0;
+    			}else if(l>div.offsetWidth-bar.offsetWidth){
+    				l=div.offsetWidth-bar.offsetWidth;
+    				
+    			}
+    			var scale=l/(div.offsetWidth-bar.offsetWidth);
+    			document.title=scale;
+    			box.style.opacity=scale;
+    			bar.style.left=l+"px";
+    		}
+    		document.onmouseup=function(){
+    			document.onmousemove=null;
+    			document.onmousedown=null;
+    			bar.releaseCapture&&bar.releaseCapture();
+    			
+    		}
+    		bar.setCapture&&bar.setCapture()
+    		return false;
+    	}
+    }
+    
+    </script>
+</head>
+<body>
+<div id="div">
+    <div id="bar"></div>
+</div>
+<div id="box"></div>
+</body>
+</html>

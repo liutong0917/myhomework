@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>定时器.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+    <script>
+        window.onload = function () {
+         var text=document.getElementById("txt");
+         var last=new Date().getTime()
+        var time;
+         time=setInterval(function(){
+        	 var now=new Date().getTime();
+        	 text.value+=now-last+"\n";
+        	 
+         }, -100)
+         document.onclick=function(){
+        	 clearInterval(time)
+         }
+         var i=0;
+         setInterval(function(){
+        	 document.title=i++;
+         }, 10)
+        }
+        var a=1;
+        setTimeout(function(){
+        	a=3
+        }, 30)
+       alert(a)
+        </script>
+</head>
+<body>
+<textarea name="" id="txt" cols="30" rows="10"></textarea>
+</body>
+</html>

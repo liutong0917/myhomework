@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>事件下沉.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+<style>
+#box1{
+	width: 300px;
+	height:300px;
+}
+#box2{
+	width: 200px;
+	height:200px;
+}
+#box3{
+	width:100px;
+	height:100px;
+}
+</style>
+<script>
+function addEvent(obj,sev,fn){
+	if(obj.addEventListener){
+		return obj.addEventListener(sev,fn,false);//false为事件冒泡,true为事件下沉
+	}else{
+		return obj.attachEvent("on"+sev,fn);
+	}
+}
+window.onload=function(){
+	var box1=document.getElementById("box1");
+	var box2=document.getElementById("box2");
+	var box3=document.getElementById("box3");
+	
+	addEvent(box1,'click',function(){
+		alert(this.style.background);
+	});
+	addEvent(box2,'click',function(){
+		alert(this.style.background);
+	});
+	addEvent(box3,'click',function(){
+		alert(this.style.background);
+	});
+}
+</script>
+</head>
+
+<body>
+<div id="box1" style="background: green;">
+	<div id="box2" style="background: yellow;">
+    	<div id="box3" style="background: red;"></div>
+    </div>
+</div>
+</body>
+</html>

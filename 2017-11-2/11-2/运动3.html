@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>运动3.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+
+    <style>
+        #div {
+            width: 100px;
+            height: 100px;
+            background: red;
+            position: absolute;
+            left: 100px;
+            top: 0;
+            opacity:0.3;
+            filter:aipha(opacity:30)
+        }
+    </style>
+    
+     <script src="move.js"></script>
+    <script>
+        window.onload = function () {
+            var oDiv = document.getElementById('div');
+            var timer = null;
+            oDiv.onclick = function(){
+               // move(oDiv,300,1000,'height');
+                move(oDiv,1,400,'opacity',function(){
+                	//document.write("该准备下次运动了")
+                	move(oDiv,{width:300,height:300},3000);
+                });
+            };
+        }
+    </script>
+</head>
+<body>
+<div id="div"></div>
+</body>
+</html>

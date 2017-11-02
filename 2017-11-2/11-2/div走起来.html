@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>div走起来.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+
+      <style>
+        #div {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: red;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+         var div=document.getElementById("div");
+         var count=0;
+         div.onclick=function(){
+        	time=setInterval(function(){
+        		 count++;
+        		 if(count==300){
+        			 clearInterval(time)
+        		 }
+        		div.style.left=count+"px" 
+        	 }, 30)
+        	
+         }
+        }
+    </script>
+</head>
+<body>
+<div id="div"></div>
+</body>
+</html>
