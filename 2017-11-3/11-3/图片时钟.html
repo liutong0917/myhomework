@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>图片时钟.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        ul li {
+            width: 24px;
+            height: 35px;
+            overflow: hidden;
+            float: left;
+            font-size: 30px;
+            position: relative;
+        }
+
+        ul li img {
+            position: absolute;
+        }
+    </style>
+    <script src="move.js"></script>
+    <script>
+        function todou(n){
+        	if(n<10){
+        		return '0'+n
+        	}else{
+        		return ""+n;
+        	}
+        }
+        window.onload=function(){
+        	var img=document.getElementsByTagName("img");
+        	function clock(){
+        		var date=new Date();
+        		var h=date.getHours();
+        		var m=date.getMinutes();
+        		var s=date.getSeconds();
+        		var str=todou(h)+todou(m)+todou(s);
+        		for(var i=0;i<img.length;i++){
+        			move(img[i],{top:-35*str.charAt(i)});
+        		}
+        	}
+        	clock();
+        	setInterval(clock, 1000)
+        }
+    </script>
+</head>
+<body>
+<ul>
+    <li><img src="img/num.png" alt=""/></li>
+    <li><img src="img/num.png" alt=""/></li>
+    <li>:</li>
+    <li><img src="img/num.png" alt=""/></li>
+    <li><img src="img/num.png" alt=""/></li>
+    <li>:</li>
+    <li><img src="img/num.png" alt=""/></li>
+    <li><img src="img/num.png" alt=""/></li>
+
+</ul>
+
+</body>
+</html>

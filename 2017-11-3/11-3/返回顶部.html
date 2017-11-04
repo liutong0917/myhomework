@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>返回顶部.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+    <style>
+        #btn {
+            width: 80px;
+            height: 40px;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            margin: -20px 0 0 -40px;
+            display: none;
+        }
+    </style>
+    <script type="text/javascript">
+    window.onload=function(){
+    	var btn=document.getElementById("btn");
+    	window.onscroll=function(){
+    		
+    		  var oscroll=document.documentElement.scrollTop || document.body.scrollTop;
+
+    		if(oscroll>500){
+    			btn.style.display="block";
+    			
+    		}else{
+    			btn.style.display="none";
+    		}
+    	}
+    	var time=null;
+    	btn.onclick=function(){
+    		clearInterval(time);
+    		var start=document.documentElement.scrollTop||document.body.scrollTop;
+    	    var dis=0-start;
+    	    var count=Math.floor(1000/30);
+    	    var n=0;
+    	    timer=setInterval(function(){
+    	    	n++;
+    	    	var a=1-n/count;
+    	    	var cur=start+dis*(1-a*a*a);
+    	    	document.documentElement.scrollTop = document.body.scrollTop = cur;
+                console.log(cur);
+                if(n==count){
+                	clearInterval(time)
+                }
+    	    }, 30)
+    	}
+    }
+    </script>
+</head>
+<body style="height: 3000px">
+<input type="button" value="返回顶部" id="btn">
+</body>
+</html>

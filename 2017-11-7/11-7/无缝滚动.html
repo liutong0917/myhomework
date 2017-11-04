@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>无缝滚动.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+
+ <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        #box {
+            position: relative;
+            width: 880px;
+            height: 220px;
+            overflow: hidden;
+            border: #000 1px solid;
+            margin:  50px auto;
+        }
+
+        #box ul {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        #box li {
+            width: 200px;
+            height: 200px;
+            float: left;
+            padding: 10px;
+        }
+
+        #box li img {
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+    <script type="text/javascript">
+    window.onload=function(){
+    	var box=document.getElementById("box")
+        var ul=document.getElementById("ul");
+    	var li=ul.children;
+    	
+    	ul.innerHTML+=ul.innerHTML;
+    	
+    	ul.style.width=li[0].offsetWidth*li.length +"px";
+    	
+    	setInterval(function(){
+    		var l=ul.offsetLeft-5;
+    		if(l<=-ul.offsetWidth/2){
+    			l=0;
+    		}
+    		ul.style.left=l+"px";    		
+    	}, 30);
+     
+    }
+  
+    </script>
+</head>
+<body>
+<div id="box">
+    <ul id="ul">
+        <li><img src="cat/1.jpg" alt=""></li>
+        <li><img src="cat/2.jpg" alt=""></li>
+        <li><img src="cat/3.jpg" alt=""></li>
+        <li><img src="cat/4.jpg" alt=""></li>
+    </ul>
+</div>
+</body>
+</html>

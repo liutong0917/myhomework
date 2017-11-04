@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>分布运动.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+
+    <style>
+        div {
+            width: 40px;
+            height: 40px;
+            background: red;
+            line-height: 40px;
+            text-align: center;
+            border-radius: 50%;
+            float: left;
+            margin: 5px;
+            color: #fff;
+            opacity: 0;
+        }
+    </style>
+    <script src="move.js"></script>
+    <script>
+        window.onload = function () {
+            var str = '的时候回出错,会认为括号没写完,的时候回出错,会认为括号没写完,的时候回出错,会认为括号没写完,的时候回出错,会认为括号没写完,的时候回出错完,解决方法是';
+           for(var i=0;i<str.length;i++){
+        	   var div=document.createElement("div");
+        	   div.innerHTML=str.charAt(i);
+        	   document.body.appendChild(div)
+           }
+           var now=0;
+            var div=document.getElementsByTagName("div")
+            timer1=setInterval(function(){
+            	move(div[now],{opacity:1});
+            	now++;
+            	if(now==str.length){
+            		clearInterval(timer1)
+            	}
+            }, 30)
+        }
+      
+    </script>
+</head>
+<body>
+
+</body>
+</html>

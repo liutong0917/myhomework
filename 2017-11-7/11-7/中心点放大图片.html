@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>中心点放大图片.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+
+   <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;;
+        }
+        #box {
+            margin: 100px auto;
+            width: 366px;
+            height: 366px;
+            border: #000 1px solid;
+        }
+
+        #box ul li {
+            width: 100px;
+            height: 100px;
+            background: #ececec;
+            border: #333 1px solid;
+            float: left;
+            margin: 10px;
+        }
+    </style>
+    <script type="text/javascript">
+            window.onload=function(){
+            	var box=document.getElementById("box");
+            	var ul=document.getElementById("ul");
+            	var li=ul.children;
+          
+                 var arr=[];
+            	for(var i=0;i<li.length;i++){
+            		arr[i]={
+            				left:li[i].offsetLeft,
+            				top:li[i].offsetTop
+            		}
+            	}
+            	for(var i=0;i<li.length;i++){
+            		li[i].style.position="absolute";
+            		li[i].style.left=arr[i].left+"px";
+            		li[i].style.top=arr[i].top+"px";
+            		li[i].style.margin=0
+            		
+            	}
+              	 for(var i=0;i<li.length;i++){
+        		li[i].onmouseover=function(){
+        		this.style.width="200px";
+        		this.style.height="200px";
+        		this.style.marginLeft="-50px";
+        		this.style.marginTop="-50px";
+        		this.style.zIndex=999;
+        		}
+        		li[i].onmouseout=function(){
+            		this.style.width="100px";
+            		this.style.height="100px";
+            		this.style.margin="0px";
+            		this.style.zIndex=0;
+            		}
+        		
+        	   } 
+            }
+    
+    </script>
+</head>
+<body>
+    <div id="box">
+        <ul id="ul">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+</body>
+</html>

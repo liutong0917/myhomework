@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>新的div运动.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+<style>
+#box {
+	width: 100px;
+	height: 100px;
+	background:red;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+</style>
+<script src="move.js"></script>
+<script>
+window.onload = function(){
+	var oBox = document.getElementById('box');
+	//var b = Tween.Back.easeIn;
+	//var b = Tween.Bounce.easeOut;
+	//var b = Tween.Circ.easeInOut;
+	//var b = Tween.Elastic.easeIn;
+	//var b = Tween.Expo.easeOut;
+	//var b = Tween.Quad.easeIn;
+	//var b = Tween.Quart.easeOut;
+	//var b = Tween.Quint.easeIn;
+	//var b = Tween.Sine.easeInOut;
+	var b = Tween.Back.prototype;
+	oBox.onclick = function(){
+		move(this,{left:700},{easeing:b});
+	}
+}
+</script>
+</head>
+
+<body>
+<div id="box"></div>
+</body>
+</html>
