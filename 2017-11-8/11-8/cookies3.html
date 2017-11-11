@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>cookies3.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+<script>
+//name：cookie名字,value:cookie 值; iDay: 过期时间
+//setCookie(name,value,iDay);
+
+function setCookie(name,value,iDay){
+	if(iDay){
+		var oDate = new Date();
+		oDate.setDate(oDate.getDate() + iDay);
+		document.cookie = name+'='+value+';path=/;expires=' + oDate;	
+	}else{
+		document.cookie = name+'='+value+';path=/';
+	}
+}
+
+setCookie('zhangsan','100',3);
+setCookie('lisi','200');
+</script>
+
+  </head>
+  
+  <body>
+    This is my HTML page. <br>
+  </body>
+</html>

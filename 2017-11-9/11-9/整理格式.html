@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>整理格式.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+ <script>
+        window.onload = function(){
+            var oBtn = document.getElementById('btn');
+            var oTxt1 = document.getElementById('txt1');
+            var oTxt2 = document.getElementById('txt2');
+
+            oBtn.onclick = function(){
+                //oTxt2.value=oTxt1.value;
+            	//oTxt2.value=oTxt1.value.replace(/^/mg,"  ");
+            	oTxt2.value=oTxt1.value.replace(/$/mg,"asd");
+            }
+        }
+    </script>
+</head>
+<body>
+<textarea name="" id="txt1" cols="30" rows="10"></textarea>
+<input type="button" value="整理" id="btn">
+<textarea name="" id="txt2" cols="30" rows="10"></textarea>
+</body>
+</html>

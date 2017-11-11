@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div {
+            width: 100px;
+            height: 100px;
+            background: red;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+    <script src="jquery.min.js"></script>
+    <script>
+        $(function () {
+           $("#div").bind("mousedown",function(e){
+           	var x=e.clientX-$(this).offset().left;
+           	var y=e.clientY-$(this).offset().top;
+           	$(document).bind("mousemove",function(e){
+           		var l=e.clientX-x;
+           		var t=e.clientY-y;
+           		$("#div").css({left:l+"px",top:t+"px"})
+           	})
+           })
+        });
+    </script>
+</head>
+<body>
+<div id="div">
+</div>
+</body>
+</html>

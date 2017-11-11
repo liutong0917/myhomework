@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	<style type="text/css">
+		#box{
+			width: 100px;
+			height: 100px;
+			background: red;
+		}
+	</style>
+	<script src="jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(function(){
+//			$("#box").contextmenu(function(){
+//				alert("单击邮件触发该事件");
+//				return false;
+//			})
+       $("#box").onmousewheel(function(){
+       	alert(1);
+       	return false;
+       })
+		})
+	</script>
+	</head>
+	<body>
+		<div id="box">
+			
+		</div>
+	</body>
+</html>

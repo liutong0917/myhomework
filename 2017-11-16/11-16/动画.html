@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<style type="text/css">
+			#div{
+				width: 100px;
+				height: 100px;
+				background: red;
+			}
+		</style>
+		<script src="jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		
+		<script type="text/javascript">
+			$(function(){
+				var div=$("#div")
+				div.hover(function(){
+					//div.animate({width:'1000px'},{duration:4000,easing:'swing',complete:function(){
+						//alert("动画完成")
+					//}
+					div.animate({width:'500px'})
+				},function(){
+					div.animate({width:'100px'})
+				})
+				})
+			//})
+			
+			
+		</script>
+		<title></title>
+	</head>
+	<body>
+		<div id="div">
+			
+		</div>
+	</body>
+</html>

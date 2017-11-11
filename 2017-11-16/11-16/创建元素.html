@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<script src="jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				var btn=$("#btn");
+				var wrap=$("#wrap");
+				// strong=$('<strong>我是一个strong标签</strong>');
+
+				btn.click(function(){
+				var strong=$('<strong>我是一个strong标签</strong>');
+					//strong.appendTo(wrap);//追加到父元素内子标签之后内
+				//strong.prependTo(wrap)//追加到父元素之后	
+				strong.insertBefore(wrap)//追加到父元素之前
+				strong.insertAfter(wrap)//追加到父元素之后
+				})
+			})
+		</script>
+		<title></title>
+	</head>
+	<body>
+		<input type="button" id="btn" value="点击" />
+		<div id="wrap">
+			<h3>我是h3标签</h3>
+		</div>
+	</body>
+</html>

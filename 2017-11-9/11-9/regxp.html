@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>regxp.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+<script type="text/javascript">
+ var str="asd asfd165af 6af3 adsf5"
+//alert(str.length)
+ var arr=[];
+ var tmp="";
+ for(var i=0;i<str.length;i++){
+	 if(str.charAt(i)>=0&&str.charAt(i)<=9){
+		 tmp+=str.charAt(i);
+	 }else{
+		 if(tmp){
+			 arr.push(tmp);
+			 tmp="";
+		 }
+	 }
+ }
+ if(tmp){
+	 arr.push(tmp);
+	 tmp="";
+ }
+ alert(arr)
+ /* var a=0;
+ var b=" ";
+ alert(Number(b)) */
+ 
+</script>
+  </head>
+  
+  <body>
+    This is my HTML page. <br>
+  </body>
+</html>

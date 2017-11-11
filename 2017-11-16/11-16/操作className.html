@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+    <style type="text/css">
+    	.box{
+    		width: 100px;
+    		height: 100px;
+    		background: red;
+    		
+    	}
+    	.border{
+    		border: 5px green solid;
+    	}
+    </style>
+	<script src="jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				$(".box").click(function(){
+					//$(this).addClass("border")
+					$(this).removeClass("border")
+				})
+			})
+		</script>
+		<title></title>
+	</head>
+	<body>
+		<div class="box border">
+			
+		</div>
+	</body>
+</html>
